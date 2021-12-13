@@ -733,15 +733,6 @@ h1 a:hover {
   margin-top: 10rem;
 }
 
-.wrong-answer {
-  background-color: #f8986b !important;
-  color: #f8986b !important;
-}
-
-.mt-6 {
-  margin-top: 10rem;
-}
-
 .col-3-qrtr-ko {
   width: 75%;
 }
@@ -874,4 +865,24 @@ p a {
 .team-member p {
   margin-top: 1rem;
   margin-bottom: 1.5rem;
+}
+
+.unservice {
+  cursor: pointer;
+  display: inline;
+}
+
+p strong {
+  font-weight: 500;
+}
+
+ol li strong {
+  font-weight: 500;
+}
+
+.team-member-photo img {
+  width: 16rem;
+  height: 16rem;
+  object-fit: cover;
+  overflow: hidden;
 }
