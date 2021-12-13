@@ -662,6 +662,19 @@ h5 .player-name {
   overflow: hidden;
 }
 
+.player-card a {
+  display: flex;
+  align-items: center;
+}
+
+a .player-name {
+  font-size: 5.2rem;
+  line-height: 6.2rem;
+  font-weight: 300;
+  color: #003630;
+  margin: 0 1rem;
+}
+
 .player-1 h1,
 .player-2 h1 {
   font-weight: 300;
