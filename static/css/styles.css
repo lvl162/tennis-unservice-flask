@@ -235,6 +235,15 @@ a:not([href]):not([tabindex]):focus {
   margin-bottom: 2.4rem;
 }
 
+.hero-left a {
+  color: #00bf7c;
+  transition: all 0.15s ease;
+}
+
+.hero-left a:hover {
+  color: #00734a;
+}
+
 h1 {
   font-size: var(--big-font-size);
   font-weight: 300;
@@ -591,7 +600,7 @@ h5 .player-name {
 
 .player-detail--first-line {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .player-detail--name {
@@ -651,6 +660,19 @@ h5 .player-name {
   height: 10rem;
   object-fit: cover;
   overflow: hidden;
+}
+
+.player-card a {
+  display: flex;
+  align-items: center;
+}
+
+.player-card a .player-name {
+  font-size: 5.2rem;
+  line-height: 6.2rem;
+  font-weight: 300;
+  color: #003630;
+  margin: 0 1rem;
 }
 
 .player-1 h1,
