@@ -24,3 +24,32 @@ class MatchList(Resource):
 
         return jsonify({'content' : body, 'message': 'FAIL'}), 400
 
+
+class Matches(Resource):
+
+    def get(self, match_id):
+
+        match = getMatch(match_id)
+
+        if (not match): abort(404,  message='match not found')
+        return jsonify({'content' : match})
+
+
+class MatchesPage(Resource):
+
+    def get(self):
+
+        headers = {'Content-Type': 'text/html'}
+        return make_response(render_template('matches.html'),200,headers)
+
+class MatchPage(Resource):
+
+    def get(self, match_id):
+        match = getMatch(match_id)
+        if (not match): abort(404,  message='match not found')
+        
+        headers = {'Content-Type': 'text/html'}
+        
+        return make_response(render_template('match.html', player1=match['player1'], player2=match['player2'],
+        date=match['date'], surface=match['surface'], tourney_name=match['tourney_name'], tourney_level=match['tourney_level']
+        , kickscore=match['kickscore']),200,headers)

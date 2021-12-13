@@ -457,6 +457,9 @@ a i {
   color: #e96122;
   font-size: var(--normal-font-size);
 }
+.wrong-answer {
+  background: #e96122 !important;
+}
 
 .bg-gray-100 {
   background: #00bf7c !important;

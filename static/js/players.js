@@ -49,9 +49,10 @@ function templateListPlayers(player1, player2) {
             <span class="player-name">${player1['name']}</span>
           </h5>
           <img
-            src="https://kickoff.ai/static/img/sparklines/83.svg"
+            src="${player1['kickscore']}"
             alt="team-strength"
             class="team-strength"
+            style='width: 500px;'
           />
         </a>
       </div>
@@ -69,9 +70,10 @@ function templateListPlayers(player1, player2) {
             <span class="player-name">${player2['name']}</span>
           </h5>
           <img
-            src="https://kickoff.ai/static/img/sparklines/83.svg"
+            src="${player2['kickscore']}"
             alt="team-strength"
             class="team-strength"
+            style='width: 500px;'
           />
         </a>
       </div>

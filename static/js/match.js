@@ -39,7 +39,7 @@ const fixtureProgressBar = (player1, player2) => {
   );
   return player1.prob > player2.prob
     ? `<div class="progress bg-gray-400 big-bar">
-                                        <div class="progress-bar bg-gray-100" role="progressbar" style="width: 60%"
+                                        <div class="progress-bar bg-gray-100" role="progressbar" style="width: ${winnerPct}%"
                                             aria-valuenow="${winnerPct}" aria-valuemin="0" aria-valuemax="100"
                                             data-toggle="tooltip"
                                             data-html="true" data-placement="top"
@@ -61,7 +61,7 @@ const fixtureProgressBar = (player1, player2) => {
               aria-valuenow="${
                 100 - winnerPct
               }" aria-valuemin="0" aria-valuemax="100" ></div>
-                                    <div class="progress-bar bg-gray-100" role="progressbar" style="width: 60%"
+                                    <div class="progress-bar bg-gray-100" role="progressbar" style="width: ${winnerPct}%"
                                         aria-valuenow="${winnerPct}" aria-valuemin="0" aria-valuemax="100"
                                         data-toggle="tooltip"
                                         data-html="true" data-placement="top"
