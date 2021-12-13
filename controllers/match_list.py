@@ -52,4 +52,4 @@ class MatchPage(Resource):
         
         return make_response(render_template('match.html', player1=match['player1'], player2=match['player2'],
         date=match['date'], surface=match['surface'], tourney_name=match['tourney_name'], tourney_level=match['tourney_level']
-        , kickscore=match['kickscore']),200,headers)
+        , kickscore=match['kickscore'], winner_id=match['winner_id']),200,headers)

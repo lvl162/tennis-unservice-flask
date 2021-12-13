@@ -1,5 +1,4 @@
 const resultMatchTemplate = (matchId, player1, player2, date, winner_id) => {
-  console.log(dateFormat(date))
     const winnerPred = player1.prob > player2.prob ? player1.id : player2.id;
   const wrong = winnerPred != winner_id;
   const template = `
