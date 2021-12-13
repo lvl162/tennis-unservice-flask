@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Service</title>
+    <link rel="shortcut icon" href="#" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}">
+    <link rel="shortcut icon" type="image/jpg" href="{{ url_for('static',filename='img/fav.svg') }}" />
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src='{{ url_for('static',filename='js/template.js') }}'></script>
+    <script src='{{ url_for('static',filename='js/utils.js') }}'></script>
+    <script src='{{ url_for('static',filename='js/main.js') }}'></script>
+</head>
+
+<body class="bg-stripes">
+
+    <header class="site-header">
+        <div class="container-ko">
+            <nav class="site-nav">
+                <div class="site-nav__left">
+                    <div class="site-logo">
+                        <a href="/" class="logo-unservice">
+                            <img src="{{ url_for('static',filename='img/logo.png') }}" alt="" class="logo-img">
+                        </a>
+                    </div>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="/matches" class="nav-link">Matches</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/players" class="nav-link">Players</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/about" class="nav-link">About</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="site-nav--right">
+                    <form action="./search-player" method="post">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search players...">
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <div class="hero">
+        <div class="container-ko">
+            <div class="hero-left">
+                <h1>Un Service uses machine learning to
+                    <a href="#matches">predict the results of football matches</a>
+                </h1>
+                <a href="/about" class="btn btn-secondary">
+                    Learn more
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="hero-right">
+                <div>
+                    <span class="total-matches hero-right__value">6278</span>
+                    <span class="hero-right__label">Matches Predicted</span>
+                </div>
+                <div>
+                    <span class="avg-log-loss hero-right__value">0.999</span>
+                    <span class="hero-right__label">Average Log Loss</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- hero end -->
+
+    <div class="section " id="matches">
+        <div class="container-ko clearfix">
+            <!-- fixture -->
+            <div class="col-hlf-ko">
+                <div class="section-header border-bottom">
+                    <h3>Upcoming matches</h3>
+                    <a href="/matches" class="btn btn-secondary btn-only-icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <!-- prediction:fixture -->
+
+                <div class="fixture-matches-container">
+                    <div class="prediction prediction-fixture">
+                        <a href="/match/:matchid">
+                            <div class="player-1">
+                                <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTgwNTMwNTM0MDMwNTE3NjA4/gettyimages-1155421342.jpg"
+                                    alt="player-name" class="player-img">
+                                <span class="player-name">Selena Williams</span>
+                            </div>
+                            <div class="prediction-details">
+                                <div class="prediction-percentages">
+                                    <span class="prediction-1st-win text-scale-100">60%</span>
+                                    <span class="prediction-2nd-win text-scale-100">40%</span>
+                                </div>
+                                <div class="progress bg-gray-400">
+                                    <div class="progress-bar bg-gray-100" role="progressbar" style="width: 60%"
+                                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-scale-300" role="progressbar" style="width: 40%"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
+                                        data-html="true" data-placement="top"
+                                        title="Most likely result:<br>Dortmund wins (60 %)"></div>
+                                </div>
+                                <div class="match-time-list">19:30 10 December</div>
+                            </div>
+                            <div class="player-2">
+                                <span class="player-name">Venus Williams</span>
+                                <img src="https://sportsmatik.com/uploads/world-events/players/venus-williams_1564546080.jpg"
+                                    alt="player-name" class="player-img">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="prediction prediction-fixture">
+                        <a href="/match/:matchid">
+                            <div class="player-1">
+                                <img src="https://photoresources.wtatennis.com/photo-resources/2021/01/19/f5e01763-eee7-449f-999a-dcee1011c20e/Osaka_Hero-Smile.png?width=1900"
+                                    alt="player-name" class="player-img">
+                                <span class="player-name">Selena Williams</span>
+                            </div>
+                            <div class="prediction-details">
+                                <div class="prediction-percentages">
+                                    <span class="prediction-1st-win text-scale-100">80%</span>
+                                    <span class="prediction-2nd-win text-scale-100">20%</span>
+                                </div>
+                                <div class="progress bg-gray-400">
+                                    <div class="progress-bar bg-gray-100" role="progressbar" style="width: 80%"
+                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-scale-300" role="progressbar" style="width: 20%"
+                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
+                                        data-html="true" data-placement="top"
+                                        title="Most likely result:<br>Dortmund wins (60 %)"></div>
+                                </div>
+                                <div class="match-time-list">19:30 10 December</div>
+                            </div>
+                            <div class="player-2">
+                                <span class="player-name">Venus Williams</span>
+                                <img src="https://sportsmatik.com/uploads/world-events/players/venus-williams_1564546080.jpg"
+                                    alt="player-name" class="player-img">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="prediction prediction-fixture">
+                        <a href="/match/:matchid">
+                            <div class="player-1">
+                                <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTgwNTMwNTM0MDMwNTE3NjA4/gettyimages-1155421342.jpg"
+                                    alt="player-name" class="player-img">
+                                <span class="player-name">Selena Williams</span>
+                            </div>
+                            <div class="prediction-details">
+                                <div class="prediction-percentages">
+                                    <span class="prediction-1st-win text-scale-100">10%</span>
+                                    <span class="prediction-2nd-win text-scale-100">90%</span>
+                                </div>
+                                <div class="progress bg-gray-400">
+                                    <div class="progress-bar bg-gray-300" role="progressbar" style="width: 60%"
+                                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-scale-100" role="progressbar" style="width: 40%"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
+                                        data-html="true" data-placement="top"
+                                        title="Most likely result:<br>Dortmund wins (60 %)"></div>
+                                </div>
+                                <div class="match-time-list">19:30 10 December</div>
+                            </div>
+                            <div class="player-2">
+                                <span class="player-name">Venus Williams</span>
+                                <img src="https://sportsmatik.com/uploads/world-events/players/venus-williams_1564546080.jpg"
+                                    alt="player-name" class="player-img">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="prediction prediction-fixture">
+                        <a href="/match/:matchid">
+                            <div class="player-1">
+                                <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTgwNTMwNTM0MDMwNTE3NjA4/gettyimages-1155421342.jpg"
+                                    alt="player-name" class="player-img">
+                                <span class="player-name">Selena Williams</span>
+                            </div>
+                            <div class="prediction-details">
+                                <div class="prediction-percentages">
+                                    <span class="prediction-1st-win text-scale-100">60%</span>
+                                    <span class="prediction-2nd-win text-scale-100">40%</span>
+                                </div>
+                                <div class="progress"></div>
+                                <div class="match-time-list">19:30 10 December</div>
+                            </div>
+                            <div class="player-2">
+                                <span class="player-name">Venus Williams</span>
+                                <img src="https://sportsmatik.com/uploads/world-events/players/venus-williams_1564546080.jpg"
+                                    alt="player-name" class="player-img">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="prediction prediction-fixture">
+                        <a href="/match/:matchid">
+                            <div class="player-1">
+                                <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTgwNTMwNTM0MDMwNTE3NjA4/gettyimages-1155421342.jpg"
+                                    alt="player-name" class="player-img">
+                                <span class="player-name">Selena Williams</span>
+                            </div>
+                            <div class="prediction-details">
+                                <div class="prediction-percentages">
+                                    <span class="prediction-1st-win text-scale-100">60%</span>
+                                    <span class="prediction-2nd-win text-scale-100">40%</span>
+                                </div>
+                                <div class="progress"></div>
+                                <div class="match-time-list">19:30 10 December</div>
+                            </div>
+                            <div class="player-2">
+                                <span class="player-name">Venus Williams</span>
+                                <img src="https://sportsmatik.com/uploads/world-events/players/venus-williams_1564546080.jpg"
+                                    alt="player-name" class="player-img">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- /fixture -->
+
+            <!-- results -->
+            <div class="col-hlf-ko">
+                <div class="section-header border-bottom">
+                    <h3>Past results</h3>
+                    <a href="/matches" class="btn btn-secondary btn-only-icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="result-matches-container">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <footer class="site-footer clearfix">
+        <div class="container-ko">
+            <div class="site-footer__left">
+                <h3>Connect us</h3>
+                <div class="site-footer__btns">
+                    <a href="" class="btn btn-secondary btn-only-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="" class="btn btn-secondary btn-only-icon"><i class="fab fa-github"></i></a>
+                    <a href="" class="btn btn-secondary btn-only-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="" class="btn btn-secondary btn-only-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- javascript -->
+    <script src="app.js" type="module"></script>
+</body>
+
+</html>

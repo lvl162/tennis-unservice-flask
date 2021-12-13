@@ -1,0 +1,74 @@
+$(document).ready(function () {
+  console.log(player1, player2);
+
+  $('.result-bar-container').html(
+    templateMatch(player1, player2, date, tourney_name, tourney_level)
+  );
+});
+
+const templateMatch = (player1, player2, date) => {
+  const winnerPct = Math.floor(
+    player1.prob > player2.prob ? player1.prob * 100 : player2.prob * 100
+  );
+  return `
+    <div class="perdiction prediction-fixture m-5">
+                <div class="prediction-details">
+                    <div class="prediction-percentages">
+                        <span class="prediction-1st-win text-scale-100">${Math.floor(
+                          player1.prob * 100
+                        )}%</span>
+                        <span class="prediction-2nd-win text-scale-100">${Math.floor(
+                          player2.prob * 100
+                        )}%</span>
+                    </div>
+                   ${fixtureProgressBar(player1, player2)}
+                    <div class="match-details">
+                        <div class="matchtime">${dateFormat(date)}</div>
+                        <div href="#" class="match-competition">${tourney_level}</div>
+                        <div class="match-location">${tourney_name}</div>
+                    </div>
+                </div>
+            </div>
+
+    `;
+};
+
+const fixtureProgressBar = (player1, player2) => {
+  const winnerPct = Math.floor(
+    player1.prob > player2.prob ? player1.prob * 100 : player2.prob * 100
+  );
+  return player1.prob > player2.prob
+    ? `<div class="progress bg-gray-400 big-bar">
+                                        <div class="progress-bar bg-gray-100" role="progressbar" style="width: 60%"
+                                            aria-valuenow="${winnerPct}" aria-valuemin="0" aria-valuemax="100"
+                                            data-toggle="tooltip"
+                                            data-html="true" data-placement="top"
+                                            title="Most likely result: ${
+                                              player1.name
+                                            } wins (${winnerPct} %)"
+                                            ></div>
+                                        <div class="progress-bar bg-scale-300" role="progressbar" style="width: ${
+                                          100 - winnerPct
+                                        }%"
+                                            aria-valuenow="${
+                                              100 - winnerPct
+                                            }" aria-valuemin="0" aria-valuemax="100" ></div>
+                                    </div>`
+    : `<div class="progress bg-gray-400 big-bar">
+        <div class="progress-bar bg-scale-300" role="progressbar" style="width: ${
+          100 - winnerPct
+        }%"
+              aria-valuenow="${
+                100 - winnerPct
+              }" aria-valuemin="0" aria-valuemax="100" ></div>
+                                    <div class="progress-bar bg-gray-100" role="progressbar" style="width: 60%"
+                                        aria-valuenow="${winnerPct}" aria-valuemin="0" aria-valuemax="100"
+                                        data-toggle="tooltip"
+                                        data-html="true" data-placement="top"
+                                        title="Most likely result: ${
+                                          player2.name
+                                        } wins (${winnerPct} %)"
+                                        ></div>
+                                    
+                                </div>`;
+};
