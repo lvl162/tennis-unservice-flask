@@ -600,7 +600,7 @@ h5 .player-name {
 
 .player-detail--first-line {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .player-detail--name {
