@@ -235,6 +235,15 @@ a:not([href]):not([tabindex]):focus {
   margin-bottom: 2.4rem;
 }
 
+.hero-left a {
+  color: #00bf7c;
+  transition: all 0.15s ease;
+}
+
+.hero-left a:hover {
+  color: #00734a;
+}
+
 h1 {
   font-size: var(--big-font-size);
   font-weight: 300;
