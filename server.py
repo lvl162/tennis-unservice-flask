@@ -39,7 +39,23 @@ from controllers.player_list import *
 from controllers.upcoming_match import *
 from controllers.kickoff import *
 
+import time
+import atexit
 
+from apscheduler.schedulers.background import BackgroundScheduler
+
+from db import maskAsFinished;
+
+def print_date_time():
+    print(time.strftime("%A, %d. %B %Y %I:%M:%S %p"))
+
+
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=print_date_time, trigger="interval", days=1)
+scheduler.start()
+
+# Shut down the scheduler when exiting the app
+atexit.register(lambda: scheduler.shutdown())
 
 
 server = Flask(__name__)
@@ -61,9 +77,9 @@ kickscore_model = pickle.load(file)
 class HelloWorld(Resource):
 
     def get(self):
-
+        num_of_entries = getMatchesCount()
         headers = {'Content-Type': 'text/html'}
-        return make_response(render_template('index.html'),200,headers)
+        return make_response(render_template('index.html', numOfMatches=num_of_entries, accuracy=0.72),200,headers)
 
         # return f"<img src='data:image/png;base64,{data}'/>"
 

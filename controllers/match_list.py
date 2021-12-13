@@ -18,4 +18,9 @@ class MatchList(Resource):
         return jsonify({'content' : getPastMatches(pageSize, offset), 'page' : page, 'pageSize': pageSize, 'numOfEntries' : num_of_entries, 'numOfPage': num_of_page})
 
     def post(self):
-        pass
+        body = request.get_json()
+        if (createMatch(body)):
+            return jsonify({'content' : body, 'message': 'Success'})
+
+        return jsonify({'content' : body, 'message': 'FAIL'}), 400
+

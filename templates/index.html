@@ -77,12 +77,12 @@
 
             <div class="hero-right">
                 <div>
-                    <span class="total-matches hero-right__value">6278</span>
+                    <span class="total-matches hero-right__value">{{numOfMatches}}</span>
                     <span class="hero-right__label">Matches Predicted</span>
                 </div>
                 <div>
-                    <span class="avg-log-loss hero-right__value">0.999</span>
-                    <span class="hero-right__label">Average Log Loss</span>
+                    <span class="avg-log-loss hero-right__value">{{accuracy}}</span>
+                    <span class="hero-right__label">Accuracy</span>
                 </div>
             </div>
         </div>
@@ -102,137 +102,6 @@
                 <!-- prediction:fixture -->
 
                 <div class="fixture-matches-container">
-                    <div class="prediction prediction-fixture">
-                        <a href="/match/:matchid">
-                            <div class="player-1">
-                                <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTgwNTMwNTM0MDMwNTE3NjA4/gettyimages-1155421342.jpg"
-                                    alt="player-name" class="player-img">
-                                <span class="player-name">Selena Williams</span>
-                            </div>
-                            <div class="prediction-details">
-                                <div class="prediction-percentages">
-                                    <span class="prediction-1st-win text-scale-100">60%</span>
-                                    <span class="prediction-2nd-win text-scale-100">40%</span>
-                                </div>
-                                <div class="progress bg-gray-400">
-                                    <div class="progress-bar bg-gray-100" role="progressbar" style="width: 60%"
-                                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                    <div class="progress-bar bg-scale-300" role="progressbar" style="width: 40%"
-                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
-                                        data-html="true" data-placement="top"
-                                        title="Most likely result:<br>Dortmund wins (60 %)"></div>
-                                </div>
-                                <div class="match-time-list">19:30 10 December</div>
-                            </div>
-                            <div class="player-2">
-                                <span class="player-name">Venus Williams</span>
-                                <img src="https://sportsmatik.com/uploads/world-events/players/venus-williams_1564546080.jpg"
-                                    alt="player-name" class="player-img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="prediction prediction-fixture">
-                        <a href="/match/:matchid">
-                            <div class="player-1">
-                                <img src="https://photoresources.wtatennis.com/photo-resources/2021/01/19/f5e01763-eee7-449f-999a-dcee1011c20e/Osaka_Hero-Smile.png?width=1900"
-                                    alt="player-name" class="player-img">
-                                <span class="player-name">Selena Williams</span>
-                            </div>
-                            <div class="prediction-details">
-                                <div class="prediction-percentages">
-                                    <span class="prediction-1st-win text-scale-100">80%</span>
-                                    <span class="prediction-2nd-win text-scale-100">20%</span>
-                                </div>
-                                <div class="progress bg-gray-400">
-                                    <div class="progress-bar bg-gray-100" role="progressbar" style="width: 80%"
-                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                    <div class="progress-bar bg-scale-300" role="progressbar" style="width: 20%"
-                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
-                                        data-html="true" data-placement="top"
-                                        title="Most likely result:<br>Dortmund wins (60 %)"></div>
-                                </div>
-                                <div class="match-time-list">19:30 10 December</div>
-                            </div>
-                            <div class="player-2">
-                                <span class="player-name">Venus Williams</span>
-                                <img src="https://sportsmatik.com/uploads/world-events/players/venus-williams_1564546080.jpg"
-                                    alt="player-name" class="player-img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="prediction prediction-fixture">
-                        <a href="/match/:matchid">
-                            <div class="player-1">
-                                <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTgwNTMwNTM0MDMwNTE3NjA4/gettyimages-1155421342.jpg"
-                                    alt="player-name" class="player-img">
-                                <span class="player-name">Selena Williams</span>
-                            </div>
-                            <div class="prediction-details">
-                                <div class="prediction-percentages">
-                                    <span class="prediction-1st-win text-scale-100">10%</span>
-                                    <span class="prediction-2nd-win text-scale-100">90%</span>
-                                </div>
-                                <div class="progress bg-gray-400">
-                                    <div class="progress-bar bg-gray-300" role="progressbar" style="width: 60%"
-                                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                    <div class="progress-bar bg-scale-100" role="progressbar" style="width: 40%"
-                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
-                                        data-html="true" data-placement="top"
-                                        title="Most likely result:<br>Dortmund wins (60 %)"></div>
-                                </div>
-                                <div class="match-time-list">19:30 10 December</div>
-                            </div>
-                            <div class="player-2">
-                                <span class="player-name">Venus Williams</span>
-                                <img src="https://sportsmatik.com/uploads/world-events/players/venus-williams_1564546080.jpg"
-                                    alt="player-name" class="player-img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="prediction prediction-fixture">
-                        <a href="/match/:matchid">
-                            <div class="player-1">
-                                <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTgwNTMwNTM0MDMwNTE3NjA4/gettyimages-1155421342.jpg"
-                                    alt="player-name" class="player-img">
-                                <span class="player-name">Selena Williams</span>
-                            </div>
-                            <div class="prediction-details">
-                                <div class="prediction-percentages">
-                                    <span class="prediction-1st-win text-scale-100">60%</span>
-                                    <span class="prediction-2nd-win text-scale-100">40%</span>
-                                </div>
-                                <div class="progress"></div>
-                                <div class="match-time-list">19:30 10 December</div>
-                            </div>
-                            <div class="player-2">
-                                <span class="player-name">Venus Williams</span>
-                                <img src="https://sportsmatik.com/uploads/world-events/players/venus-williams_1564546080.jpg"
-                                    alt="player-name" class="player-img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="prediction prediction-fixture">
-                        <a href="/match/:matchid">
-                            <div class="player-1">
-                                <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTgwNTMwNTM0MDMwNTE3NjA4/gettyimages-1155421342.jpg"
-                                    alt="player-name" class="player-img">
-                                <span class="player-name">Selena Williams</span>
-                            </div>
-                            <div class="prediction-details">
-                                <div class="prediction-percentages">
-                                    <span class="prediction-1st-win text-scale-100">60%</span>
-                                    <span class="prediction-2nd-win text-scale-100">40%</span>
-                                </div>
-                                <div class="progress"></div>
-                                <div class="match-time-list">19:30 10 December</div>
-                            </div>
-                            <div class="player-2">
-                                <span class="player-name">Venus Williams</span>
-                                <img src="https://sportsmatik.com/uploads/world-events/players/venus-williams_1564546080.jpg"
-                                    alt="player-name" class="player-img">
-                            </div>
-                        </a>
-                    </div>
                 </div>
             </div>
             <!-- /fixture -->

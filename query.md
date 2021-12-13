@@ -24,6 +24,15 @@ create table if not exists matches (
 	  REFERENCES players(id)
 );
 
+create table players (
+ id  serial  PRIMARY KEY, 
+ name varchar(200),
+ hand varchar(10),
+ dob date,
+ ioc varchar(20),
+ height float,
+ photo_url varchar(500)
+)
 
 create table if not exists ranks(
 	id serial primary key,

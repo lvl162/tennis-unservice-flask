@@ -11,9 +11,7 @@ $(document).ready(() => {
 });
 
 const getListPlayers = (pageSize, page) => {
-  const listPlayersUrl = `https://api.wtatennis.com/content/wta/photo/EN/?pageSize=${pageSize}&page=${page}&tagNames=player-headshot`;
-
-  console.log(listPlayersUrl);
+  const listPlayersUrl = `/api/players?page=${page}&pageSize=${pageSize}`;
   $.ajax({
     url: listPlayersUrl,
     processData: false,
@@ -21,9 +19,10 @@ const getListPlayers = (pageSize, page) => {
     type: 'GET',
     success: function (data) {
       listPlayers = data.content;
+      // console.log(listPlayers[0]["age"]);
       const teamsDiv = $('.teams');
+      // console.log(listPlayers[0]);
       for (var i = 0; i < listPlayers.length - 1; i = i + 2) {
-        // console.log(listPlayers[i]["references"][0]['sid']);
         teamsDiv.append(
           templateListPlayers(listPlayers[i], listPlayers[i + 1])
         );
@@ -40,14 +39,14 @@ function templateListPlayers(player1, player2) {
     <div class="col-hlf-ko">
       <!-- team link -->
       <div class="team-link team-one">
-        <a href="/player/${player1['references'][0]['sid']}">
+        <a href="/player/${player1['id']}">
           <h5>
             <img
-              src="${player1['imageUrl']}"
-              alt="${player1['title']}"
+              src="${player1['photo_url']}"
+              alt="${player1['name']}"
               class="player-img"
             />
-            <span class="player-name">${player1['title']}</span>
+            <span class="player-name">${player1['name']}</span>
           </h5>
           <img
             src="https://kickoff.ai/static/img/sparklines/83.svg"
@@ -60,14 +59,14 @@ function templateListPlayers(player1, player2) {
     <div class="col-hlf-ko">
       <!-- team link -->
       <div class="team-link team-one">
-        <a href="/player/${player2['references'][0]['sid']}">
+        <a href="/player/${player2['id']}">
           <h5>
             <img
-              src="${player2['imageUrl']}"
-              alt="${player2['title']}"
+              src="${player2['photo_url']}"
+              alt="${player2['name']}"
               class="player-img"
             />
-            <span class="player-name">${player2['title']}</span>
+            <span class="player-name">${player2['name']}</span>
           </h5>
           <img
             src="https://kickoff.ai/static/img/sparklines/83.svg"

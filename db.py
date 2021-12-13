@@ -5,18 +5,31 @@ from utils import *
 from models import *
 
 from constants import * 
+
 engine = create_engine('postgresql://postgres:1622000@localhost/wtatennis')
 
 
-def getPlayer(id):
+def getPlayerByName(id):
 
     with engine.connect() as conn:
 
-        result = conn.execute(f'select * from players where id={id}')
+        result = conn.execute(f"select * from players where name='{id}'")
         if (result.rowcount):
             res =  dict(result.first())
             res['age'] = age(res['dob'])
             res['rank'] = 1
+            return res
+        return None
+def getPlayer(id):
+
+    with engine.connect() as conn:
+
+        result = conn.execute(f'select p.*, r.rank, r.points from players p inner join ranks r on p.id = r.player_id where p.id={id} order by ranking_date desc')
+        if (result.rowcount):
+            res =  dict(result.first())
+            res['age'] = age(res['dob'])
+            # res['rank'] = res(['rank'])
+            # res['points'] = res(['points'])
             return res
         return None
 
@@ -184,3 +197,42 @@ def getMatchesCount():
 
 
         # return [dict(row) for row in result]
+
+def createMatch(data):
+    player_1_name = data['player1']
+    player_2_name = data['player2']
+    surface = data['surface']
+    tourney_date = data['date']
+    tourney_name = data['name']
+    tourney_level = data['level']
+    finished = data['finished']
+    player1 = getPlayerByName(player_1_name)
+    player2 = getPlayerByName(player_2_name)
+    if (not player1 or not player2): return None
+
+    player_1_id = player1['id']
+    player_2_id = player2['id']
+    # player_1_rank = player1['rank']
+    # player_1_rank_points = player1['rank']
+
+    match_series = next_match(player_1_name, player_2_name, surface, tourney_level)
+
+    prediction = gbc_best.predict(np.matrix(match_series))
+
+    probability = gbc_best.predict_proba(np.matrix(match_series))
+
+    player_1_prob = probability[0, 0]
+
+    player_2_prob = probability[0, 1]
+    with engine.connect() as conn:
+
+        result = conn.execute(f'insert into matches(player_1_id,player_2_id,player_1_prob, player_2_prob ,surface, tourney_date, tourney_level, finished, tourney_name) '
+        + f"values({player_1_id}, {player_2_id}, {player_1_prob}, {player_2_prob},'{surface}', '{tourney_date}', '{tourney_level}', {finished}, '{tourney_name}')"
+        )
+    return True
+
+def maskAsFinished():
+    with engine.connect() as conn:
+
+        result = conn.execute(f"update matches set finished=TRUE where tourney_date < CURRENT_DATE")
+    return True
