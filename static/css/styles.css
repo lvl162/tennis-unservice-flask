@@ -667,7 +667,7 @@ h5 .player-name {
   align-items: center;
 }
 
-a .player-name {
+.player-card a .player-name {
   font-size: 5.2rem;
   line-height: 6.2rem;
   font-weight: 300;
