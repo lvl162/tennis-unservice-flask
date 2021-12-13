@@ -143,7 +143,8 @@ class PlayerPage(Resource):
 
         if (not player): abort(404, message='player not found')
 
-        return jsonify({'content' : player})
+        headers = {'Content-Type': 'text/html'}
+        return make_response(render_template('player.html', player=player),200,headers)
 
 class MatchesPage(Resource):
 

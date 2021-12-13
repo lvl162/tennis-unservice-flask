@@ -4,6 +4,7 @@ import numpy as np
 from datetime import datetime
 import re
 from constants import *
+from datetime import date
 
 def next_match(player1, player2, surface, tourney_level):
 	# print(player1, player2, surface, tourney_level)
@@ -192,3 +193,9 @@ def get_paginated_list(results, url, start, limit):
     # finally extract result according to bounds
     obj['results'] = results[(start - 1):(start - 1 + limit)]
     return obj
+
+ 
+def age(birthdate):
+    today = date.today()
+    age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+    return age

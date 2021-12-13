@@ -14,8 +14,10 @@ def getPlayer(id):
 
         result = conn.execute(f'select * from players where id={id}')
         if (result.rowcount):
-            return dict(result.first())
-
+            res =  dict(result.first())
+            res['age'] = age(res['dob'])
+            res['rank'] = 1
+            return res
         return None
 
 def getMatch(id):
@@ -52,11 +54,14 @@ def getPlayers(limit=10, offset=0):
 
     with engine.connect() as conn:
 
-        result = conn.execute(f'select * from players order by id desc limit {limit} offset {offset}')
+        result = conn.execute(f'select * from players where dob is not null and photo_url is not null order by id desc limit {limit} offset {offset}')
+        res = []
+        for row in result:
 
-        # for row in result:
-
-        #     print(dict(row))
+            row_dict =  dict(row)
+            row_dict['age'] = age(row_dict['dob'])
+            row_dict['rank'] = 1
+            res.append(row_dict)
 
         # result = conn.execute(select([users.c.name, users.c.birthday]))
 
@@ -64,8 +69,8 @@ def getPlayers(limit=10, offset=0):
 
         #     print(dict(row))
 
-
-        return [dict(row) for row in result]
+        return res;
+        # return [dict(row) for row in result]
 
 def getPlayersCount():
 

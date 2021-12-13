@@ -87,10 +87,10 @@
           <div class="player-detail--first-line">
             <img
               class="player-detail--img"
-              src="https://photoresources.wtatennis.com/photo-resources/2021/01/19/f5e01763-eee7-449f-999a-dcee1011c20e/Osaka_Hero-Smile.png?width=1900"
+              src="{{player.photo_url}}"
               alt="player-img"
             />
-            <h2 class="player-detail--name">Naomi Osaka</h2>
+            <h2 class="player-detail--name">{{player.name}}</h2>
           </div>
           <div class="player-detail--second-line">
             <div class="player-detail--second-line__col">
@@ -99,15 +99,15 @@
             </div>
             <div class="player-detail--second-line__col">
               <span>Nationality</span>
-              <h6 class="player-detail__value nationality">USA</h6>
+              <h6 class="player-detail__value nationality">{{player.ioc}}</h6>
             </div>
             <div class="player-detail--second-line__col">
               <span>Age</span>
-              <h6 class="player-detail__value age">20</h6>
+              <h6 class="player-detail__value age">{{player.age}}</h6>
             </div>
             <div class="player-detail--second-line__col">
-              <span>Recent 6-month form</span>
-              <h6 class="player-detail__value 6-month-form">80%</h6>
+              <span>Height (cm)</span>
+              <h6 class="player-detail__value 6-month-form">{{player.height}}</h6>
             </div>
           </div>
         </div>
