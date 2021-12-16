@@ -1,6 +1,0 @@
-version: '3'
-services:
-  db:
-    image: "postgres:13.5"
-    networks:
-      - db_nw
