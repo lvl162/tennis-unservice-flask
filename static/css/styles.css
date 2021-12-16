@@ -391,7 +391,11 @@ a i {
   width: 25%;
 }
 
-.player-1,
+.player-1 {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
 .player-2 {
   display: flex;
   align-items: center;
@@ -677,7 +681,9 @@ h5 .player-name {
   color: #003630;
   margin: 0 1rem;
 }
-
+.player-1 img {
+  margin-right: 10px
+}
 .player-1 h1,
 .player-2 h1 {
   font-weight: 300;

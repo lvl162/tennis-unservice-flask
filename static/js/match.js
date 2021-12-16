@@ -37,7 +37,7 @@ const templateMatch = (player1, player2, date, tourney_name, tourney_level, winn
                           player2.prob * 100
                         )}%</span>
                     </div>
-                   ${resultProgressBar(player1, player2, wrong)}
+                   ${fixtureProgressBar(player1, player2)}
                     <div class="match-details">
                         <div class="matchtime">${dateFormat(date)}</div>
                         <div href="#" class="match-competition">${tourney_level}</div>

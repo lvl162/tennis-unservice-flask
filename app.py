@@ -181,4 +181,4 @@ def update_figure(player1, player2, surface, level, feature):
 	return fig
 
 if __name__ == '__main__':
-	app.run_server(debug=True)
+	app.run_server(host='0.0.0.0',debug=True, port=80)
