@@ -18,7 +18,7 @@ Beside the match predictions, we also create a graph of performance over time of
 
 # Tech stack
 
-- Flask 
+- Flask + Dashed
 - HTML5 CSS3
 - VanillaJS
 - jQuery
