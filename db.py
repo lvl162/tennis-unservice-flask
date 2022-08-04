@@ -7,7 +7,9 @@ from models import *
 from constants import * 
 
 from controllers.kickoff import *
-engine = create_engine('postgresql://postgres:1622000@localhost/wtatennis')
+# DATABASE_URL = 'postgresql://postgres:1622000@localhost/wtatennis'
+DATABASE_URL = 'postgres://oihmxqwkduigll:073c3d5640b4a5eabb6ff895a4738f6d82c59951f65a6f57ee17de5589f05cdb@ec2-44-195-100-240.compute-1.amazonaws.com:5432/dbc99k61r8kms4'
+engine = create_engine(DATABASE_URL)
 
 
 def getPlayerByName(id):
