@@ -10,7 +10,8 @@ from utils import *
 from models import *
 
 from server import server;
-from dash_layout import *; 
+from dash_layout import *;
+
 app = dash.Dash(__name__, server=server, url_base_pathname='/dash/',external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # App gives warning if an imputed value is used in prediction
@@ -176,9 +177,10 @@ def update_figure(player1, player2, surface, level, feature):
 		#plot_bgcolor='#FFFFFF',
 		legend={'orientation': 'h', 'yanchor': 'top', 'xanchor': 'right', 'y': 1.1, 'x': 1},
 		legend_title_text=None
-	)
-	
+	)	
 	return fig
+
+server = app.server 
 
 if __name__ == '__main__':
 	app.run_server(host='0.0.0.0',debug=True, port=8080)
