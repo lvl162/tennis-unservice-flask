@@ -57,3 +57,4 @@ uWSGI==2.0.20
 webassets==2.0
 Werkzeug==2.2.1
 gunicorn
+backports.zoneinfo;python_version<"3.9"
