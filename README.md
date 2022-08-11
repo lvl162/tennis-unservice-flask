@@ -5,7 +5,7 @@ In this project, we decided to use data from 2000 to 2021 for the prediction mod
 
 Beside the match predictions, we also create a graph of performance over time of each player in the dataset with great help of Kick-off library.
 
-# Model accuracy evaluation
+## Model accuracy evaluation
 
 | MODEL                        | TRAIN ACCURACY | TEST ACCURACY |
 |------------------------------|----------------|---------------|
@@ -16,13 +16,13 @@ Beside the match predictions, we also create a graph of performance over time of
 | Linear discriminant analysis | 70.1%          | 69.4%         |
 | Gassian naive Bayes          | 68.5%          | 67.9%         |
 
-# Tech stack
+## Tech stack
 
 - Flask + Dashed
 - HTML5 CSS3
 - VanillaJS
 - jQuery
 
-# Demo
-[here] 
+## Demo
+![here](https://tennis-unservice.herokuapp.com)
 
