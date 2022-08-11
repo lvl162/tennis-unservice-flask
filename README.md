@@ -24,5 +24,5 @@ Beside the match predictions, we also create a graph of performance over time of
 - jQuery
 
 ## Demo
-![here](https://tennis-unservice.herokuapp.com)
+[here](https://tennis-unservice.herokuapp.com)
 
